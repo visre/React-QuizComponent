@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import QuizQuestion from './QuizQuestion.js'
 import QuizEnd from './QuizEnd.js'
+import { stat } from 'fs';
 
 let quizData = require('./quiz_data.json');
 
 class Quiz extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { quiz_position: 1 }
+    }
     showNextQuestion() {
         this.setState((state) => {
             return { quiz_position: state.quiz_position + 1 }
